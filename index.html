@@ -16,8 +16,8 @@
 
 	<!-- ================== END core-css ================== -->
 </head>
-<body>
-
+<body onload="showAllTasks()">
+	
 	<!-- BEGIN #app -->
 	<div id="app" class="app-without-sidebar">
 		<!-- BEGIN #content -->
@@ -142,17 +142,74 @@
 		</div>
 		<div class="modal-footer">
 		  <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		  <button    id="savechanges" type="button" class="btn btn-primary"  data-bs-dismiss="modal" onclick="createTask()">Save changes</button>
+		  <button    id="savechanges" type="button" class="btn btn-primary"  data-bs-dismiss="modal" onclick="saveTask()">Save changes</button>
 		</div> 
 	  </div>
 	</div>
   </div>
+	<!--seconde modal -->
+	<div  class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLabel">Add Task</h5>
+			  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="mb-3">
+					<label for="exampleFormControlInput1" class="form-label">Title</label>
+					<input type="text" class="form-control" id="text-title" >
+				  </div>
+				  <label for="exampleFormControlInput1" class="form-label">Type</label>
+				  <div  id ="check1" class="form-check ms-2">
+					<input class="form-check-input" type="radio" value="Feature" name="flexRadioDefault" id="flexRadioDefault1">
+					<label class="form-check-label" for="flexRadioDefault1">
+					  Feature
+					</label>
+				  </div>
+				  <div  id="check2"	 class="form-check ms-2">
+					<input class="form-check-input" type="radio" value="bug" name="flexRadioDefault" id="flexRadioDefault2" checked>
+					<label class="form-check-label" for="flexRadioDefault2">
+					  Bug
+					</label>
+				  </div>
+					  <span >Priority</span>
+				  <select id="form-select1" class="form-select" aria-label="Default select example">
+					<option disabled selected>Open this select menu</option>
+					<option value="High">High</option>
+					<option value="medium">medium</option>	
+					<option value="low">low</option>
+				  </select>
+				  <span>Status</span>
+				  <select id="form-select2" class="form-select" aria-label="Default select example">
+					<option disabled selected>Open this select menu</option>
+					<option value="To Do"> to do </option>
+					<option value="In Progress"> in progress</option>
+					<option value="Done"> done </option>
+				  </select>
+				  <label for="meeting-time">Date</label>
+				  <input class="form-control"  id="time"
+						 type="date">
+						 <div class="form-group">
+							<label for="exampleFormControlTextarea1">Description</label>
+							<textarea class="form-control" id="description" rows="6"></textarea>
+						  </div>
+			</div>
+			<div class="modal-footer">
+			  <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			  <button type="button" class="btn btn-danger"> - delete this task</button>
+			  <button type="button" class="btn btn-warning">Update the task</button>
+			</div> 
+		  </div>
+		</div>
+	  </div>
+	
 
 	<!-- ================== BEGIN core-js ================== -->
 	<script src="assets/js/vendor.min.js"></script>
 	 <script src="assets/js/app.min.js"></script>
 	<script src="assets/js/data.js"></script>
-	<script src="assets/js/app.js"></script> -->
+	<script src="assets/js/app.js"></script>
 	<!-- ================== END core-js ================== -->
 </body>
 </html>
