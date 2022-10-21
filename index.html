@@ -16,7 +16,7 @@
 
 	<!-- ================== END core-css ================== -->
 </head>
-<body onload="showAllTasks()">
+<body onload="showAllTasks()" >
 	
 	<!-- BEGIN #app -->
 	<div id="app" class="app-without-sidebar">
@@ -128,9 +128,9 @@
 			  <span>Status</span>
 			  <select id="form-select2" class="form-select" aria-label="Default select example">
 				<option disabled selected>Open this select menu</option>
-				<option value="to do"> to do </option>
-				<option value="in progress"> in progress</option>
-				<option value="done"> done </option>
+				<option value="To Do"> to do </option>
+				<option value="In Progress"> in progress</option>
+				<option value="Done"> done </option>
 			  </select>
 			  <label for="meeting-time">Date</label>
 			  <input class="form-control"  id="time"
@@ -158,7 +158,7 @@
 			<div class="modal-body">
 				<div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">Title</label>
-					<input type="text" class="form-control" id="text-title" >
+					<input type="text" class="form-control" id="text-title2" >
 				  </div>
 				  <label for="exampleFormControlInput1" class="form-label">Type</label>
 				  <div  id ="check1" class="form-check ms-2">
@@ -174,31 +174,30 @@
 					</label>
 				  </div>
 					  <span >Priority</span>
-				  <select id="form-select1" class="form-select" aria-label="Default select example">
+				  <select id="form-select1.1" class="form-select" aria-label="Default select example">
 					<option disabled selected>Open this select menu</option>
 					<option value="High">High</option>
 					<option value="medium">medium</option>	
 					<option value="low">low</option>
 				  </select>
 				  <span>Status</span>
-				  <select id="form-select2" class="form-select" aria-label="Default select example">
+				  <select id="form-select2.1" class="form-select" aria-label="Default select example">
 					<option disabled selected>Open this select menu</option>
 					<option value="To Do"> to do </option>
 					<option value="In Progress"> in progress</option>
 					<option value="Done"> done </option>
 				  </select>
 				  <label for="meeting-time">Date</label>
-				  <input class="form-control"  id="time"
-						 type="date">
+				  <input class="form-control"  id="time1" type="date">
 						 <div class="form-group">
 							<label for="exampleFormControlTextarea1">Description</label>
-							<textarea class="form-control" id="description" rows="6"></textarea>
+							<textarea class="form-control" id="description1" rows="6"></textarea>
 						  </div>
 			</div>
 			<div class="modal-footer">
-			  <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-			  <button type="button" class="btn btn-danger"> - delete this task</button>
-			  <button type="button" class="btn btn-warning">Update the task</button>
+			  <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+			  <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> - delete this task</button>
+			  <button type="button" class="btn btn-warning" data-bs-dismiss="modal" onclick="updatelist()">Update the task</button>
 			</div> 
 		  </div>
 		</div>

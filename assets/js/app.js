@@ -10,28 +10,27 @@ var donetasks = document.getElementById("done-tasks");
 var array = [];
 
 //this function is for the creation of
-function editTask(id) {
-  window.onclick = (e) => {
-    console.log(e.target.innerText);
-  };
-}
+function editTask(id) {}
 
 //the function that shows all tasks
 function showAllTasks() {
   //first of thing make all inputs empty
 
-  window.innerHTML = "";
+  divButton.innerHTML = "";
+  inprogresse.innerHTML = "";
+  donetasks.innerHTML = "";
+
   //second thing we go trought a loop
   for (var i = 0; i < tasks.length; i++) {
-    console.log("before erreur");
-    let button = `<button id="${i}" data-bs-target="#exampleModal2"  data-bs-toggle="modal" class=" p-2 w-100 d-flex border-0  bg-white mb-1" onclick="editTask()" >
+    index = tasks[i].length;
+    let button = `<button  data-bs-target="#exampleModal2"  data-bs-toggle="modal" class=" p-2 w-100 d-flex border-0  bg-white mb-1" onclick="getId(${i})" >
     <div class="px-3">
         <i class="bi bi-question-circle fs-3 text-success  "></i>
     </div>
     <div class="text-start">
         <div class="h5">${tasks[i].title}</div>
         <div class="text-start">
-            <div class="h6">#${array.length + 1} created in ${tasks[i].date}</div>
+            <div class="h6">#${i + 1} created in ${tasks[i].date}</div>
             <div class="" title="">${tasks[i].description}</div>
         </div>
         <div class="text-start">
@@ -62,31 +61,44 @@ function saveTask() {
   var description = document.getElementById("description");
   var priorityF = document.getElementById("form-select2");
   if (feature.checked == true) {
-    check = feature.value;
+    check = feature;
   } else if (bug.checked == true) {
-    check = bug.value;
+    check = bug;
   }
   // Créez task object
-  let tasks = {
-    title: exampleFormControlInput1,
-    type: priority,
+  var task = {
+    title: exampleFormControlInput1.value,
+    type: priority.value,
     priority: check,
-    status: priorityF,
-    date: time,
-    description: description,
+    status: priorityF.value,
+    date: time.value,
+    description: description.value,
   };
   // Ajoutez object au Array
-  array.push(tasks);
+  tasks.push(task);
   // refresh tasks
   showAllTasks();
+  console.log(tasks);
 }
 
-function updateTask() {
-  // GET TASK ATTRIBUTES FROM INPUTS
-  // Créez task object
-  // Remplacer ancienne task par nouvelle task
-  // Fermer Modal form
-  // Refresh tasks
+function getId(i) {
+  document.getElementById("text-title2").value = tasks[i].title;
+  document.getElementById("form-select1.1").value = tasks[i].priority;
+  document.getElementById("form-select2.1").value = tasks[i].status;
+  document.getElementById("time1").value = tasks[i].date;
+  document.getElementById("description1").value = tasks[i].description;
+  if (feature.checked == true) {
+    check = feature;
+  } else if (bug.checked == true) {
+    check = bug;
+  }
+}
+
+function updatelist() {
+  getId(i);
+  tasks[i].title.value = document.getElementById("text-title2").value;
+
+  showAllTasks();
 }
 
 function deleteTask() {
