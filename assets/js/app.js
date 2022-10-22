@@ -22,8 +22,8 @@ function showAllTasks() {
 
   //second thing we go trought a loop
   for (var i = 0; i < tasks.length; i++) {
-    index = tasks[i].length;
-    let button = `<button  data-bs-target="#exampleModal2"  data-bs-toggle="modal" class=" p-2 w-100 d-flex border-0  bg-white mb-1" onclick="getId(${i})" >
+    //index = tasks[i].length;
+    let button = `<button   data-bs-target="#exampleModal2"  data-bs-toggle="modal" class=" p-2 w-100 d-flex border-0  bg-white mb-1" onclick="getId(${i})" >
     <div class="px-3">
         <i class="bi bi-question-circle fs-3 text-success  "></i>
     </div>
@@ -34,8 +34,8 @@ function showAllTasks() {
             <div class="" title="">${tasks[i].description}</div>
         </div>
         <div class="text-start">
-            <span class="btn btn-primary">High</span>
-            <span class="btn btn-light text-black">Feature</span>
+            <span class="btn btn-primary">${tasks[i].type}</span>
+            <span class="btn btn-light text-black">${tasks[i].priority}</span>
         </div>
     </div>
 </button>`;
@@ -54,23 +54,18 @@ function saveTask() {
   // Recuperer task attributes a partir les champs input
   var exampleFormControlInput1 = document.getElementById("text-title");
   var feature = document.getElementById("flexRadioDefault1");
-  var check;
   var bug = document.getElementById("flexRadioDefault2");
   var priority = document.getElementById("form-select1");
   var time = document.getElementById("time");
   var description = document.getElementById("description");
-  var priorityF = document.getElementById("form-select2");
-  if (feature.checked == true) {
-    check = feature;
-  } else if (bug.checked == true) {
-    check = bug;
-  }
+  var status = document.getElementById("form-select2");
+
   // Créez task object
   var task = {
     title: exampleFormControlInput1.value,
-    type: priority.value,
-    priority: check,
-    status: priorityF.value,
+    type: feature.checked == true ? feature.value : bug.value,
+    priority: priority.value,
+    status: status.value,
     date: time.value,
     description: description.value,
   };
@@ -82,38 +77,32 @@ function saveTask() {
 }
 
 function getId(i) {
+  document.getElementById("id").value = i;
   document.getElementById("text-title2").value = tasks[i].title;
   document.getElementById("form-select1.1").value = tasks[i].priority;
   document.getElementById("form-select2.1").value = tasks[i].status;
   document.getElementById("time1").value = tasks[i].date;
   document.getElementById("description1").value = tasks[i].description;
-  if (feature.checked == true) {
-    check = feature;
-  } else if (bug.checked == true) {
-    check = bug;
-  }
+  var radioBoxe1 = document.getElementById("flexRadioDefault1-1");
+  var radioboxe2 = document.getElementById("flexRadioDefault2-1");
+  tasks[i].type == "Feature" ? (radioBoxe1.checked = true) : (radioboxe2.checked = true);
+  return i;
 }
 
-function updatelist() {
-  getId(i);
-  tasks[i].title.value = document.getElementById("text-title2").value;
-
+function DeleteTasks() {
+  let id = document.getElementById("id").value;
+  tasks.splice(id, 1);
   showAllTasks();
 }
 
-function deleteTask() {
-  // Get index of task in the array
-  // Remove task from array by index splice function
-  // close modal form
-  // refresh tasks
-}
+function updateTasks() {
+  let id = document.getElementById("id").value;
+  tasks[id].title = document.getElementById("text-title2").value;
+  tasks[id].priority = document.getElementById("form-select1.1").value;
+  tasks[id].status = document.getElementById("form-select2.1").value;
+  tasks[id].date = document.getElementById("time1").value;
+  tasks[id].description = document.getElementById("description1").value;
 
-function initTaskForm() {
-  // Clear task form from data
-  // Hide all action buttons
-}
-
-function reloadTasks() {
-  // Remove tasks elements
-  // Set Task count
+  console.log(tasks);
+  showAllTasks();
 }

@@ -113,7 +113,7 @@
 				</label>
 			  </div>
 			  <div  id="check2"	 class="form-check ms-2">
-				<input class="form-check-input" type="radio" value="bug" name="flexRadioDefault" id="flexRadioDefault2" checked>
+				<input class="form-check-input" type="radio" value="Bug" name="flexRadioDefault" id="flexRadioDefault2" checked>
 				<label class="form-check-label" for="flexRadioDefault2">
 				  Bug
 				</label>
@@ -157,18 +157,22 @@
 			</div>
 			<div class="modal-body">
 				<div class="mb-3">
+					<label for="exampleFormControlInput1" class="form-label" >id</label>
+					<input type="text" class="form-control" id="id" readonly>
+				  </div>
+				<div class="mb-3">
 					<label for="exampleFormControlInput1" class="form-label">Title</label>
 					<input type="text" class="form-control" id="text-title2" >
 				  </div>
 				  <label for="exampleFormControlInput1" class="form-label">Type</label>
 				  <div  id ="check1" class="form-check ms-2">
-					<input class="form-check-input" type="radio" value="Feature" name="flexRadioDefault" id="flexRadioDefault1">
+					<input class="form-check-input" type="radio" value="Feature" name="flexRadioDefault" id="flexRadioDefault1-1">
 					<label class="form-check-label" for="flexRadioDefault1">
 					  Feature
 					</label>
 				  </div>
 				  <div  id="check2"	 class="form-check ms-2">
-					<input class="form-check-input" type="radio" value="bug" name="flexRadioDefault" id="flexRadioDefault2" checked>
+					<input class="form-check-input" type="radio" value="Bug" name="flexRadioDefault" id="flexRadioDefault2-1" checked>
 					<label class="form-check-label" for="flexRadioDefault2">
 					  Bug
 					</label>
@@ -196,8 +200,8 @@
 			</div>
 			<div class="modal-footer">
 			  <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
-			  <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> - delete this task</button>
-			  <button type="button" class="btn btn-warning" data-bs-dismiss="modal" onclick="updatelist()">Update the task</button>
+			  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="DeleteTasks()"> - delete this task</button>
+			  <button type="button" class="btn btn-warning" data-bs-dismiss="modal" onclick="updateTasks()">Update the task</button>
 			</div> 
 		  </div>
 		</div>
